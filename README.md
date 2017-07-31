@@ -1,2 +1,3 @@
 # MPMProjekt
-Minigolf
+Minigolfbahnen
+Programmierung von der Hauptseite der Webseite
