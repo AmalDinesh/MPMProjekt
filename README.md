@@ -1,3 +1,3 @@
 # MPMProjekt
-Minigolfbahnen /n
+Minigolfbahnen
 Programmierung von der Hauptseite der Webseite
