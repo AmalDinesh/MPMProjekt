@@ -1,14 +1,109 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-		<link href="design.css" type="text/css" rel="stylesheet">
-		<script type="text/javascript" src="Java.js"></script>
-	</head>
-	<body>
-		<h1>MinigolfBahn</h1>
-		
-		
-	</body>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <link href="design.css" type="text/css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="Java.js"></script>
+		<style>
+		#loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display:none;
+  position:absolute;
+  top: 20px;
+  margin: 0 auto;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+		</style>
+    </head>
+<body>
+<div class="Box">
+  <header>
+    <div class="nav">
+      <ul>
+        <li class="home"><a class="active" href="?seite=home">Home</a></li>
+        <li class="tutorials"><a href="?seite=tutorials">Tutorials</a></li>
+        <li class="about"><a href="?seite=about">About</a></li>
+        <li class="news"><a href="?seite=newsletter">Newsletter</a></li>
+        <li class="contact"><a href="?seite=contact">Contact</a></li>
+      </ul>
+    </div>
+	<img id="Golf"src="golf.png"></img>
+  </header>
+	  <div class="container"> <!-- der inhalt im container wird bei ajax requests komplett überschrieben -->
+
+		  Hallo hallihallo
+		  <hr>
+		  <footer>
+		  <a href="#">Home</a>
+		  </footer>
+		  </hr>
+	  </div>
+	  <div id="loader"></div>
+  </div>
+     <script>
+$( "a" ).click(function(e) {
+e.preventDefault();
+$('#loader').show()
+var address = "response.php"+$(this).attr("href");
+$.ajax({
+		type: 'GET',
+		url: address, 
+		dataType: "html",
+		success: function(msg) {
+			$('.container').fadeOut(800, function(){ // bei erfolg
+				$('#loader').hide();
+				$('.container').html(msg).fadeIn().delay(1200);
+			});
+		},
+		fail: function() {
+			$('.container').fadeOut(800, function(){ // wenn generell fehler auftritt
+				$('#loader').hide();
+				$('.container').html("<p>Ein Fehler ist aufgetretren, bitte laden Sie die Webseite neu</p>").fadeIn().delay(1200);
+				
+			});
+		},
+		statusCode: {
+			404: function() {
+			$('.container').fadeOut(800, function(){ // wenn webseite nicht gefunden
+				$('#loader').hide();
+				$('.container').html("<h1>Die Webseite wurde nicht gefunden</h1>").fadeIn().delay(1200);
+				
+			});
+			},
+			405: function() { // bei nicht erlaubter methode
+			$('.container').fadeOut(800, function(){
+				$('#loader').hide();
+				$('.container').html("<h1>Methode nicht erlaubt</h1>").fadeIn().delay(1200);
+				
+			});
+			},
+			500: function() { //im falle des server fehlers
+			$('.container').fadeOut(800, function(){
+				$('#loader').hide();
+				$('.container').html("<h1>Server Fehler!</h1>").fadeIn().delay(1200);
+				
+			});
+			}}
+	});
+});		
+</script>
+</body>
 </html>
