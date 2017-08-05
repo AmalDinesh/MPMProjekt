@@ -8,8 +8,26 @@ Ausgabe von beliebigen Inhalt bei echo
 			echo "<p>Hallo und Herzlich Willkommen auf der Startseite</p>";  
 		break;
 		case "tutorials":
-			echo "wir erklären euch wie das geht";
+			echo "";
 		break;
+		case "maps";
+		echo "<h1> Minigolfkarten</h1>";
+		case "maps":
+  if(isset($_GET['map'])){
+	  
+   echo "gebe das aus";
+   
+  }
+  else{
+   echo "was anderes";
+  }
+  break;
+		break;
+		
+		
+		    
+ 
+		
 		case "about":
 			echo "Über uns und über die Seite";
 		break;
