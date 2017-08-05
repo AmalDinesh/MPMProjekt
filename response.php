@@ -12,17 +12,18 @@ Ausgabe von beliebigen Inhalt bei echo
 		break;
 		case "maps";
 		echo "<h1> Minigolfkarten</h1>";
-		case "maps":
-  if(isset($_GET['map'])){
-	  
-   echo "gebe das aus";
-   
-  }
-  else{
-   echo "was anderes";
-  }
+		
+  switch($_GET['map']){
+	  case "map1":
+	  echo "<p>gib das aus</p>";
   break;
-		break;
+   case "map2":
+   echo "<p>lulululu</p>";
+   break;
+  }
+ 
+  break;
+		
 		
 		
 		    
