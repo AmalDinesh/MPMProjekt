@@ -1,42 +1,44 @@
-var c2=document.getElementById("mycanvas2");
+//Canvas/Contextvarabeln
+var canvas = document.getElementById("canvas2");
+var c = canvas.getContext("2d");
 
-var cty=c2.getContext("2d");
-/*
-cty.beginPath();
-cty.arc(790,238,15,0*Math.PI,2*Math.PI);
-cty.strokeStyle='#3AAD55';
-cty.fillStyle='#3AAD55';
-cty.stroke();
-*/
-cty.beginPath();
-cty.rect(80, 80, 820, 300);
-cty.strokeStyle="black";
-cty.stroke();
+//Canvas für Map2
+c.beginPath();
+c.moveTo(50,170);
+c.lineTo(650,170);
+c.stroke();
 
-cty.beginPath();
-cty.arc(783, 220, 50, 1.1*Math.PI, 0.85*Math.PI);
-cty.strokeStyle="black";
-cty.stroke();
+c.beginPath();
+c.arc(783, 238, 150, 1.15*Math.PI, 0.85*Math.PI, false);
+c.stroke();
 
-cty. beginPath();
-cty.moveTo(737, 204);
-cty.lineTo(700, 204);
-cty.stroke();
+c.beginPath();
+c.moveTo(50, 306);
+c.lineTo(650, 306);
+c.stroke();
 
-cty.beginPath();
-cty.moveTo(738,243);
-cty.lineTo(700,243);
-cty.stroke();
+c.beginPath();
+c.moveTo(50, 170);
+c.lineTo(50, 306);
+c.stroke();
 
-cty.beginPath();
-cty.arc(785,220,15,0*Math.PI,2*Math.PI);
-cty.strokeStyle='#3AAD55';
-cty.fillStyle='#3AAD55';
-cty.stroke();
+c.beginPath();
+c.arc(113,238,10,0*Math.PI,2*Math.PI);
+c.strokeStyle='black';
+c.stroke();
 
-cty.beginPath();
-cty.beginPath();
-cty.arc(113,220,10,0*Math.PI,2*Math.PI);
-//ctx.strokeStyle='black';
-cty.fillStyle = 'white';
-cty.fill();
+//Hindernisse
+//1
+c.save();
+c.rotate(30*Math.PI/180);
+c.fillStyle="yellow";
+c.fillRect(430, 10, 60, 60);
+c.restore();
+
+//2
+c.rotate(20*Math.PI/180);
+c.fillStyle="blue";
+c.fillRect(650, -35, 60, 60);
+
+
+
