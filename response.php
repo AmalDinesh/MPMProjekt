@@ -1,5 +1,6 @@
 <script type="text/javascript" src="canvas.js"></script>
 <script type="text/javascript" src="canvas3.js"></script>
+<script type="text/javascript" src="canvas2.js"></script>
 <?php
 /*
 Ausgabe von beliebigen Inhalt bei echo
