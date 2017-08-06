@@ -14,15 +14,15 @@ Ausgabe von beliebigen Inhalt bei echo
 		case "maps";
 		echo "<h1> Minigolfkarten</h1>";
 		
-  switch($_GET['map']){
-	  case "map1":
-	  echo "<h1> Karte 1</h1>";
-	       echo "<canvas id='mycanvas'></canvas>";
-  break;
-   case "map2":
-   echo "<p>lulululu</p>";
-   break;
-  }
+			switch($_GET['map']){
+				case "map1":
+					echo "<h1> Karte 1</h1>";
+					echo "<canvas id='mycanvas' width='1000' height='500' style='border:1px solid black;'></canvas>";
+				break;
+		case "map2":
+		echo "<p>lulululu</p>";
+		break;
+		}
  
   break;
 		

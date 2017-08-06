@@ -4,10 +4,10 @@ body {
   background: white;
 }
  h1{
-	 font-size: 30px;
+	font-size: 30px;
  }
  div.Box{
-	 background-color:white;
+	background-color:white;
 	height:2000px;
 	width:1000px;
 	margin-right:auto;
@@ -110,10 +110,5 @@ hr footer {
 	height:300px;
 	margin-right:auto;
 	margin-left:auto;
-	
-}
-canvas{
-	border: 1px solid black;
-	
 	
 }
