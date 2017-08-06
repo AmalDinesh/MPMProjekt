@@ -1,3 +1,4 @@
+<script type="text/javascript" src="canvas.js"></script>
 <?php
 /*
 Ausgabe von beliebigen Inhalt bei echo
@@ -7,33 +8,35 @@ Ausgabe von beliebigen Inhalt bei echo
 		case "home":
 			echo "<p>Hallo und Herzlich Willkommen auf der Startseite</p>";  
 		break;
-		
 		case "tutorials":
-			echo "Hier sind die Tutorials";
+			echo "";
 		break;
-		
 		case "maps";
-			echo "<h1> Minigolfkarten</h1>";
+		echo "<h1> Minigolfkarten</h1>";
 		
-  			switch($_GET['map']){
-	  			case "map1":
-	 			echo "<p>gib das aus</p>";
- 				break;
-   			
-				case "map2":
-  				echo "<p>lulululu</p>";
-   				break;
-  			}
-  		break;
-	
+  switch($_GET['map']){
+	  case "map1":
+	  echo "<h1> Karte 1</h1>";
+	       echo "<canvas id='mycanvas'></canvas>";
+  break;
+   case "map2":
+   echo "<p>lulululu</p>";
+   break;
+  }
+ 
+  break;
+		
+		
+		
+		    
+ 
+		
 		case "about":
 			echo "Über uns und über die Seite";
 		break;
-		
 		case "newsletter":
 			echo "hier könnt ihr euch für den Newsletter anmelden";
 		break;
-		
 		case "contact":
 			echo "hier könnt ihr uns kontaktieren";
 		break;
