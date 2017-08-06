@@ -1,5 +1,5 @@
 <script type="text/javascript" src="canvas.js"></script>
-<script type="text/javascript" src="canvas2.js"></script>
+<script type="text/javascript" src="canvas3.js"></script>
 <?php
 /*
 Ausgabe von beliebigen Inhalt bei echo
@@ -26,7 +26,7 @@ Ausgabe von beliebigen Inhalt bei echo
 				break;
 		case "map3":
 		echo "<h1>Karte Nr 3</h1>";
-		echo "<canvas id='mycanvas2' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<canvas id='mycanvas3' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
 		break;
 		}
  
