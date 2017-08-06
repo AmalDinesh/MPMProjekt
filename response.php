@@ -1,4 +1,5 @@
 <script type="text/javascript" src="canvas.js"></script>
+<script type="text/javascript" src="canvas2.js"></script>
 <?php
 /*
 Ausgabe von beliebigen Inhalt bei echo
@@ -17,10 +18,15 @@ Ausgabe von beliebigen Inhalt bei echo
 			switch($_GET['map']){
 				case "map1":
 					echo "<h1> Karte 1</h1>";
-					echo "<canvas id='mycanvas' width='1000' height='500' style='border:1px solid black;'></canvas>";
+					echo "<canvas id='mycanvas' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
 				break;
 		case "map2":
-		echo "<p>lulululu</p>";
+					echo "<h1>Karte 2</h1>";
+					echo "<canvas id='canvas2' width='1000' height='500' style='border:1px solid black;'></canvas>";
+				break;
+		case "map3":
+		echo "<h1>Karte Nr 3</h1>";
+		echo "<canvas id='mycanvas2' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
 		break;
 		}
  
