@@ -1,6 +1,13 @@
 <script type="text/javascript" src="canvas.js"></script>
 <script type="text/javascript" src="canvas3.js"></script>
 <script type="text/javascript" src="canvas2.js"></script>
+<script type="text/javascript" src="canvas4.js"></script>
+<script type="text/javascript" src="canvas5.js"></script>
+<script type="text/javascript" src="canvas9.js"></script>
+<script type="text/javascript" src="canvas10.js"></script>
+<script type="text/javascript" src="canvas11.js"></script>
+<script type="text/javascript" src="canvas12.js"></script>
+<script type="text/javascript" src="canvas13.js"></script>
 <?php
 /*
 Ausgabe von beliebigen Inhalt bei echo
@@ -20,15 +27,53 @@ Ausgabe von beliebigen Inhalt bei echo
 				case "map1":
 					echo "<h1> Karte 1</h1>";
 					echo "<canvas id='mycanvas' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+					echo "<button id = 'blue1' onclick ='animateBlue()'></button>";
+					echo "<button id = 'red1' onclick ='animateRed()'></button>";
 				break;
 		case "map2":
 					echo "<h1>Karte 2</h1>";
-					echo "<canvas id='canvas2' width='1000' height='500' style='border:1px solid black;'></canvas>";
+					echo "<canvas id='canvas2' width='1000' height='500' style='border:1px solid black'style='background:#15F00A';></canvas>";
 				break;
 		case "map3":
 		echo "<h1>Karte Nr 3</h1>";
 		echo "<canvas id='mycanvas3' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
 		break;
+		
+		case "map4":
+		echo "<h1>Karte Nr 4 (Liegende Schleife)</h1>";
+		echo "<canvas id='mycanvas4' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "map5":
+		echo "<h1>Karte Nr5 (Stumpfe Kegel)</h1>";
+		echo "<canvas id='mycanvas5' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		case "map9":
+		echo "<h1>Karte Nr9 (Schräger Kreis ohne Hindernisse)</h1>";
+		echo "<canvas id='mycanvas9' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "map10":
+		echo "<h1>Karte Nr10 (Steilschräge ohne Hindernisse)</h1>";
+		echo "<canvas id='mycanvas10' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "map11":
+		echo "<h1>Karte Nr11 (Schräger Kreis mit Niere)</h1>";
+		echo "<canvas id='mycanvas11' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "map12":
+		echo "<h1> Karte Nr12 (Brücke)";
+		echo "<canvas id='mycanvas12' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "map13":
+		echo "<h1> Karte Nr13 (Rohr)";
+		echo "<canvas id='mycanvas13' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		
 		}
  
   break;
