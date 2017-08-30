@@ -75,6 +75,42 @@ Ausgabe von beliebigen Inhalt bei echo
 		
 		
 		}
+		case "Stäbe":
+		echo "<h1> 14. Stäbe";
+		echo "<canvas id='staebe' width='1000' height='700' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "Zielkreisfenster":
+		echo "<h1> 15. Zielkreisfenster";
+		echo "<canvas id='Zielkreisfenster' width='1000' height='700' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "Mittelhügel":
+		echo "<h1> 16. Mittelhügel";
+	    echo "<canvas id='Mittelhuegel' width='1000' height='700' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		break;
+		
+		case "Vulkan":
+		echo "<h1> 17. Vulkan";
+	    echo "<canvas id='Vulkan' width='1000' height='700' style='border:1px solid black' style='background:#15F00A';></canvas>";		break;
+		break;
+		
+		case "Blitz":
+		echo "<h1> 18. Blitz";
+        echo "<canvas id='Blitz' width='1000' height='700' style='border:1px solid black' style='background:#15F00A';></canvas>";				break;
+		break;
+		
+		case "Plateau":
+		echo "<h1> 19. Plateau";
+	    echo "<canvas id='Plateau' width='1000' height='700' style='border:1px solid black' style='background:#15F00A';></canvas>";			
+		break;
+		
+		case "VHinderniss":
+		echo "<h1> 20. VHinderniss";
+	    echo "<canvas id='VHinderniss' width='1000' height='700' style='border:1px solid black' style='background:#15F00A';></canvas>";					break;
+		break;
+		}	
+			
  
   break;
 		
