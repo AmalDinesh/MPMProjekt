@@ -43,29 +43,70 @@ Ausgabe von beliebigen Inhalt mit echo
 		echo "<canvas id='mycanvas5' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
 		echo "<script>canvas5();</script>";
 		break;
+		
+		case 6:
+		echo "<h1>Karte Nr6 (Bahnwinkel)</h1>";
+		echo "<canvas id='mycanvas6' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas6();</script>";
+		break;
+		
+		case 7:
+		echo "<h1>Karte Nr7 (Mittelhügel)</h1>";
+		echo "<canvas id='mycanvas7' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas7();</script>";
+		break;
+		
+		case 8:
+		echo "<h1>Karte Nr8 (V-Hinderniss)</h1>";
+		echo "<canvas id='mycanvas8' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas8();</script>";
+		break;
 		case 9:
 		echo "<h1>Karte Nr9 (Schräger Kreis ohne Hindernisse)</h1>";
 		echo "<canvas id='mycanvas9' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas9();</script>";
 		break;
 		
 		case 10:
 		echo "<h1>Karte Nr10 (Steilschräge ohne Hindernisse)</h1>";
 		echo "<canvas id='mycanvas10' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas10();</script>";
 		break;
 		
 		case 11:
 		echo "<h1>Karte Nr11 (Schräger Kreis mit Niere)</h1>";
 		echo "<canvas id='mycanvas11' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas11();</script>";
 		break;
 		
 		case 12:
 		echo "<h1> Karte Nr12 (Brücke)";
 		echo "<canvas id='mycanvas12' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas12();</script>";
 		break;
 		
 		case 13:
 		echo "<h1> Karte Nr13 (Rohr)";
 		echo "<canvas id='mycanvas13' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas13();</script>";
+		break;
+		
+		case 14:
+		echo "<h1> Karte Nr14 (Blitz)";
+		echo "<canvas id='mycanvas14' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas14();</script>";
+		break;
+		
+		case 15:
+		echo "<h1> Karte Nr15 (Zielhügel)";
+		echo "<canvas id='mycanvas15' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas15();</script>";
+		break;
+		
+		case 16:
+		echo "<h1> Karte Nr16 (Vulkan)";
+		echo "<canvas id='mycanvas16' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+		echo "<script>canvas16();</script>";
 		break;
 		
 		
