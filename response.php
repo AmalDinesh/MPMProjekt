@@ -19,6 +19,7 @@ Ausgabe von beliebigen Inhalt mit echo
 			echo "<canvas id='mycanvas' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
 			echo "<button id = 'blue'>Blau</button>";
 			echo "<button id = 'red'>Rot</button>";
+			echo "<button id = 'reset'>Reset</button>";
 			echo "<script>canvas1();</script>";
 		break;
 		case 2:
@@ -29,6 +30,9 @@ Ausgabe von beliebigen Inhalt mit echo
 		case 3:
 		echo "<h1>Karte Nr 3</h1>";
 		echo "<canvas id='mycanvas3' width='1000' height='500' style='border:1px solid black' style='background:#15F00A';></canvas>";
+			echo "<button id = 'blue3'>Blau</button>";
+			echo "<button id = 'red3'>Rot</button>";
+			echo "<button id = 'reset3'>Reset</button>";
 		echo "<script>canvas3();</script>";
 		break;
 		
