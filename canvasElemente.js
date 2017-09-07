@@ -25,7 +25,7 @@ var running = false;
 var red = false;
 var blue = false;
 var redSwitch = false;
-var redSwitch1 = false;
+var redSwitchnext = false;
 var container = {
   draw: function(){
 	ctx.beginPath();
@@ -78,7 +78,7 @@ var container = {
 	ctx.stroke();
 
 	ctx.beginPath();
-	ctx.arc(790,238,15,0*Math.PI,2*Math.PI);
+	ctx.arc(790,238,20,0*Math.PI,2*Math.PI);
 	ctx.strokeStyle='#3AAD55';
 	ctx.fillStyle='#3AAD55';
 	ctx.stroke();
@@ -89,7 +89,7 @@ var ball = { //alle anfangskoordinaten und eigenschaften
   y: 235,
   vx: 5,
   vy: 1,
-  radius: 20,
+  radius: 10,
   color: 'black',
   draw: function() {
     ctx.beginPath();
@@ -138,26 +138,34 @@ function draw() { //animieren
 		ball.y += 2.8;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
 	}
-	if(ball.x > 255 && ball.y > 310){ //x 255 ,, y 310
+	if(ball.x > 255 && ball.y > 308){ //x 255 ,, y 310
 		redSwitch = true;
 		console.log("Route wechseln");
 	}
-	if(ball.x > 650 && ball.y < 280){
-			redSwitch = true;
+	if(ball.x > 645 && ball.y < 270){
+			redSwitchnext = true;
 		}
-	if(ball.x > 750 && ball.y < 245){
+	if(ball.x > 790 && ball.y < 230){
 		running = false;
 		window.cancelAnimationFrame(raf);
 		console.log("Ende");
 	}
 	if(redSwitch == true){
 		ball.y -= 4.8;
-		ball.x += 5;
+		ball.x += 4.5;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
-		if(ball.x > 410 && ball.y < 169){
+		if(ball.x > 375 && ball.y < 169){
 			redSwitch = false;
 		}
 		
+	}
+	if(redSwitchnext==true){
+		ball.y -= 0.05;
+		ball.x += 7;
+		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
+		if(ball.x > 600 && ball.y < 305){
+			redSwitchnext = false;
+		}
 	}
   }
   
@@ -176,6 +184,20 @@ $( "#red" ).on('click', function(e) { //red
 	red = true;
   }
 });
+$( "#reset" ).on('click', function(e) { //reset
+		raf = window.requestAnimationFrame(draw);
+		running = true;
+		ball.x = 120;
+		ball.y = 235;
+		clear();
+		ball.draw();
+		container.draw();
+		
+    window.cancelAnimationFrame(raf);
+	running = false;
+	console.log("resettet");
+	
+});
 mycanvas.addEventListener('mouseout', function(e) { //wenn kursor draussen ist, terminiert sich das programm
   window.cancelAnimationFrame(raf);
   running = false;
@@ -183,6 +205,7 @@ mycanvas.addEventListener('mouseout', function(e) { //wenn kursor draussen ist, 
 container.draw();
 ball.draw();
 }
+
 //BAHNWINKEL
 function canvas6(){
 	//Variabeln
@@ -343,15 +366,19 @@ function canvas2(){
 }
 //CANVAS3
 function canvas3(){
-	var c2=document.getElementById("mycanvas3");
-	var cty=c2.getContext("2d");
-	/*
-	cty.beginPath();
-	cty.arc(790,238,15,0*Math.PI,2*Math.PI);
-	cty.strokeStyle='#3AAD55';
-	cty.fillStyle='#3AAD55';
-	cty.stroke();
-	*/
+	var c= document.getElementById("mycanvas3");
+	var cty=c.getContext("2d");
+	//document.getElementById("blue1").onclick = animateBlue;
+	//document.getElementById("red1").onclick = animateRed;
+
+var raf3;
+var running3 = false;
+var red3 = false;
+var blue3 = false;
+var redSwitch = false;
+var redSwitch3 = false;
+var container3 = {
+  draw: function(){
 	cty.beginPath();
 	cty.rect(80, 80, 820, 300);
 	cty.strokeStyle="black";
@@ -377,15 +404,139 @@ function canvas3(){
 	cty.strokeStyle='#3AAD55';
 	cty.fillStyle='#3AAD55';
 	cty.stroke();
+  
 
+	
+	
 	cty.beginPath();
+	cty.moveTo(120,220);
+	cty.lineTo(780,220);
+	cty.strokeStyle='blue';
+	cty.stroke();
+	
 	cty.beginPath();
-	cty.arc(113,220,10,0*Math.PI,2*Math.PI);
-	//ctx.strokeStyle='black';
-	cty.fillStyle = 'white';
-	cty.fill();
-
+	cty.moveTo(120,220);
+	cty.lineTo(350,380);
+	cty.lineTo(710,205);
+	cty.lineTo(780,220);
+	cty.strokeStyle='red';
+	cty.stroke();
+  }
+};
+var ball3 = { //alle anfangskoordinaten und eigenschaften
+  x: 120,
+  y: 220,
+  vx: 5,
+  vy: 1,
+  radius: 10,
+  color: 'black',
+  draw: function() {
+   cty.beginPath();
+		cty.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
+		cty.closePath();
+		cty.fillStyle=this.color;
+		cty.fill();
+  }
+};
+function clear() { //löschen 
+  cty.fillStyle = 'rgba(255, 255, 255, 1)';
+  cty.fillRect(0,0,mycanvas3.width,mycanvas3.height); // da ist ein fehler
 }
+function draw() { //animieren
+  clear();
+  ball3.draw();
+  container3.draw();
+  
+  
+  
+  
+ // ball.y += ball.vy;
+
+  /*if (ball.y + ball.vy > mycanvas.height || ball.y + ball.vy < 0) {
+    ball.vy = -ball.vy;
+  }
+  if (ball.x + ball.vx > mycanvas.width || ball.x + ball.vx < 0) {
+    ball.vx = -ball.vx;
+  }
+*/
+  raf3 = window.requestAnimationFrame(draw);
+  
+  if(blue3 == true){ 
+	ball3.x += 5;
+	console.log("koordinate x = "+ball3.x+" koordinate y = "+ball3.y);
+	if(ball3.x > 785){ 
+		running3 = false;
+		window.cancelAnimationFrame(raf3);
+		
+		console.log("Ende");
+	}
+  }
+  if(red3 == true){ 
+	if(redSwitch3 == false){
+		ball3.x += 5;
+		ball3.y += 3.5;
+		console.log("koordinate x = "+ball3.x+" koordinate y = "+ball3.y);
+	}
+	if(ball3.x > 350 && ball3.y > 300){ //x 255 ,, y 310
+		redSwitch3 = true;
+		console.log("Route wechseln");
+	}
+	
+	if(ball3.x > 785 && ball3.y < 230){
+		running3 = false;
+		window.cancelAnimationFrame(raf3);
+		console.log("Ende");
+	}
+	if(redSwitch3 == true){
+		ball3.y -= 3.5;
+		ball3.x += 7;
+		console.log("koordinate x = "+ball3.x+" koordinate y = "+ball3.y);
+		if(ball3.x > 700 && ball3.y < 205){
+			redSwitch3 = false;
+		}
+		
+	}
+  }
+  
+}
+$( "#blue3" ).on('click', function(e3) { //blue
+  if (!running3) {
+    raf3 = window.requestAnimationFrame(draw);
+    running3 = true;
+	blue3 = true;
+  }
+});
+$( "#red3" ).on('click', function(e3) { //red
+  if (!running3) {
+    raf3 = window.requestAnimationFrame(draw);
+    running3 = true;
+	red3 = true;
+  }
+});
+$( "#reset3" ).on('click', function(e3) { //reset
+		raf3 = window.requestAnimationFrame(draw);
+		running3 = true;
+		ball3.x = 120;
+		ball3.y = 235;
+		clear();
+		ball3.draw();
+		container3.draw();
+		
+    window.cancelAnimationFrame(raf3);
+	running3 = false;
+	console.log("resettet");
+	
+});
+mycanvas3.addEventListener('mouseout', function(e3) { //wenn kursor draussen ist, terminiert sich das programm
+  window.cancelAnimationFrame(raf3);
+  running3 = false;
+});
+container3.draw();
+ball3.draw();
+}
+
+	
+
 //MITTELHÜGEL
 function canvas7(){
 	var canvas = document.getElementById('mycanvas7');
