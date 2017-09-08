@@ -198,10 +198,7 @@ $( "#reset" ).on('click', function(e) { //reset
 	console.log("resettet");
 	
 });
-mycanvas.addEventListener('mouseout', function(e) { //wenn kursor draussen ist, terminiert sich das programm
-  window.cancelAnimationFrame(raf);
-  running = false;
-});
+
 container.draw();
 ball.draw();
 }
@@ -375,8 +372,8 @@ var raf3;
 var running3 = false;
 var red3 = false;
 var blue3 = false;
-var redSwitch = false;
 var redSwitch3 = false;
+var redSwitchnext3=false;
 var container3 = {
   draw: function(){
 	cty.beginPath();
@@ -471,33 +468,45 @@ function draw() { //animieren
 		console.log("Ende");
 	}
   }
-  if(red3 == true){ 
+  
+   if(red3 == true){ 
 	if(redSwitch3 == false){
 		ball3.x += 5;
 		ball3.y += 3.5;
 		console.log("koordinate x = "+ball3.x+" koordinate y = "+ball3.y);
 	}
-	if(ball3.x > 350 && ball3.y > 300){ //x 255 ,, y 310
+	if(ball3.x > 350 && ball3.y > 380){ //x 255 ,, y 310
 		redSwitch3 = true;
 		console.log("Route wechseln");
 	}
-	
-	if(ball3.x > 785 && ball3.y < 230){
-		running3 = false;
-		window.cancelAnimationFrame(raf3);
-		console.log("Ende");
+	if(ball3.x>350 && ball3.y>380){
+		redSwitchnext3=true;
+		console.log("Route wechseln");
 	}
+	
 	if(redSwitch3 == true){
-		ball3.y -= 3.5;
-		ball3.x += 7;
+		ball3.y -= 6;
+		ball3.x += 4.5;
 		console.log("koordinate x = "+ball3.x+" koordinate y = "+ball3.y);
-		if(ball3.x > 700 && ball3.y < 205){
+		if(ball3.x >710 && ball3.y <205){
 			redSwitch3 = false;
+			redSwitchnext3=true;
 		}
 		
 	}
-  }
-  
+	if(redSwitchnext3==true){
+		ball3.y+=0.5;
+		ball3.x+=7;
+		console.log("koordinate x = "+ball3.x+" koordinate y = "+ball3.y);
+		if(ball3.x>780 && ball3.y>220){
+			running3=false;
+			window.cancelAnimationFrame(raf3);
+			console.log("Ende");
+		}
+	}
+
+ 
+}
 }
 $( "#blue3" ).on('click', function(e3) { //blue
   if (!running3) {
@@ -531,11 +540,12 @@ mycanvas3.addEventListener('mouseout', function(e3) { //wenn kursor draussen ist
   window.cancelAnimationFrame(raf3);
   running3 = false;
 });
+
 container3.draw();
 ball3.draw();
 }
 
-	
+
 
 //MITTELHÜGEL
 function canvas7(){
