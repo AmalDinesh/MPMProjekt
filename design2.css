@@ -1,0 +1,109 @@
+@media screen and (max-width:599px) {
+	body {
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+ h1{
+	font-size: 30px;
+ }
+ div.Box{
+	background-color:white;
+	width:100%;
+	margin-right:auto;
+	margin-left:auto;
+ }
+.nav ul  {
+	
+	list-style: none;
+	background-color: #444;
+	text-align: center;
+	padding: 10px 0px 10px 0px;
+	margin: auto;
+	width: 300%;
+	font-size: 2em;
+}
+.maps {
+    position: sticky;
+    display: inline-block;
+	text-align: center;
+	border-bottom: 1px solid #555;
+	padding: 10px 0px 10px 0px;
+
+}
+
+.kartevis {
+	visibility: hidden;
+}
+
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75em;
+  line-height: 40px;
+  padding: 10px 20px;
+  
+}
+
+.dropdown {
+	position: relative;
+	display: block;
+	padding: 10px 0px 10px 0px;
+	width: 230%;
+	margin-left: -300%;
+	margin-top: -50%;
+	
+}
+
+.drop {
+}
+ 
+.nav a {
+	text-decoration: none;
+	color: #fff;
+	display: list-item;
+	transition: .3s background-color;
+	margin: 10px;
+	padding: 5px;
+	border: 1px solid #a6abc5;
+	border-radius: 5px;
+	
+}
+ 
+.nav a:hover {
+  background-color: #005f5f;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+ 
+
+
+div hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+
+
+hr footer {
+    clear: both;
+    position: fixed;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+}
+
+#Golf{
+	width:300%;
+	height:300px;
+	margin-right:auto;
+	margin-left:auto;
+	
+}
+
+
+}

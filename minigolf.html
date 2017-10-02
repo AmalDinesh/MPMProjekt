@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+		<title>Minigolf</title>
+        <link href="design.css" type="text/css" rel="stylesheet" media="screen and (min-width:600px) ">
+		<link href="design2.css" type="text/css" rel="stylesheet" media="screen and (max-width:599px)">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!-- <script type="text/javascript" src="canvasElemente.js"></script> nicht mehr nötig-->
+		<style>
+		#loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display:none;
+  position:absolute;
+  top: 20px;
+  margin: 0 auto;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+		</style>
+		<?php
+session_start();
+?>
+    </head>
+<body onload="beforeLoad">
+<div class="Box">
+  <header>
+    <div class="nav">
+      <ul>
+        <li id="home" ><a href="?seite=home" class="site active">Home</a></li>
+        <li><a href="?seite=impressum" class="site">Impressum</a></li>
+		<li class="maps"><a href="?seite=maps" class="site maps kartevis ">Karten</a>
+		<div class="dropdown">
+		<ul>
+		<li><a class="drop" href="?seite=maps&maps=1">Map1</a></li>
+		<li><a class="drop" href="?seite=maps&maps=2">Map2</a></li>
+		<li><a class="drop" href="?seite=maps&maps=3">Map3</a></li>
+		<li><a  class="drop"href="?seite=maps&maps=4">Map4</a></li>
+		<li><a class="drop" href="?seite=maps&maps=5">Map5</a></li>
+		<li><a class="drop" href="?seite=maps&maps=6">Map6</a></li>
+		<li><a class="drop"href="?seite=maps&maps=7">Map7</a></li>
+		<li><a class="drop"href="?seite=maps&maps=8">Map8</a></li>
+		<li><a class="drop" href="?seite=maps&maps=9">Map9</a></li>
+	    <li><a class="drop" href="?seite=maps&maps=10">Map10</a></li>
+		<li><a class="drop" href="?seite=maps&maps=11">Map11</a></li>
+		<li><a class="drop"href="?seite=maps&maps=12">Map12</a></li>
+		<li><a class="drop" href="?seite=maps&maps=13">Map13</a></li>
+		<li><a class="drop" href="?seite=maps&maps=14">Map14</a></li>
+		<li><a class="drop" href="?seite=maps&maps=15">Map15</a></li>
+		<li><a class="drop" href="?seite=maps&maps=16">Map16</a></li>
+	  </ul>
+	  </div>
+	  </li>
+      </ul>
+    </div>
+	<img id="Golf"src="img/golf.jpg"></img>
+  </header>
+	  <div class="container" style="position:relative;"> <!-- der inhalt im container wird bei ajax requests komplett überschrieben -->
+
+		 
+		  <hr>
+		  <footer>
+		  <a href="#">Home</a>
+		  </footer>
+		  </hr>
+	  </div>
+	  <div id="loader"></div>
+  </div>
+     <script>
+	 /*
+	 1. canvas start position post
+	 2. draw line koordinaten post
+	 3. onkeyup enter saveline
+	 */
+function beforeLoad() {
+    console.log("Before Operation");
+}
+
+
+
+
+
+$( "a" ).click(function(e) {
+e.preventDefault();
+
+$( ".site" ).each(function( index ) {
+  if($(this).hasClass('active') && index<3){
+	$(this).removeClass('active');
+  }
+
+});
+if(!$(this).hasClass('drop')){
+	$(this).addClass('active');
+	
+}
+if($(this).hasClass('drop')){
+	$('.maps').addClass('active');
+}
+
+
+$('#loader').show();
+var address = "response.php"+$(this).attr("href");
+$.ajax({
+		type: 'GET',
+		url: address, 
+		dataType: "html",
+		success: function(msg) {
+			$('.container').fadeOut(800, function(){ // bei erfolg
+				$('#loader').hide();
+				$('.container').html(msg).fadeIn().delay(1200);
+			});
+		},
+		fail: function() {
+			$('.container').fadeOut(800, function(){ // wenn generell fehler auftritt
+				$('#loader').hide();
+				$('.container').html("<p>Ein Fehler ist aufgetretren, bitte laden Sie die Webseite neu</p>").fadeIn().delay(1200);
+				
+			});
+		},
+		statusCode: {
+			404: function() {
+			$('.container').fadeOut(800, function(){ // wenn webseite nicht gefunden
+				$('#loader').hide();
+				$('.container').html("<h1>Die Webseite wurde nicht gefunden</h1>").fadeIn().delay(1200);
+				
+			});
+			},
+			405: function() { // bei nicht erlaubter methode
+			$('.container').fadeOut(800, function(){
+				$('#loader').hide();
+				$('.container').html("<h1>Methode nicht erlaubt</h1>").fadeIn().delay(1200);
+				
+			});
+			},
+			500: function() { //im falle des server fehlers
+			$('.container').fadeOut(800, function(){
+				$('#loader').hide();
+				$('.container').html("<h1>Server Fehler!</h1>").fadeIn().delay(1200);
+				
+			});
+			}}
+	});
+});	
+
+</script>
+</body>
+</html>
