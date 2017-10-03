@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 20. Sep 2017 um 21:18
+-- Erstellungszeit: 03. Okt 2017 um 16:43
 -- Server-Version: 10.1.13-MariaDB
 -- PHP-Version: 5.6.21
 
@@ -47,30 +47,31 @@ INSERT INTO `bewertung` (`golfbahn_id`, `vote_up`, `vote_down`) VALUES
 
 CREATE TABLE `golfbahn` (
   `golfbahn_id` int(10) UNSIGNED NOT NULL,
-  `beschreibung` varchar(200) DEFAULT NULL
+  `beschreibung` varchar(200) DEFAULT NULL,
+  `text` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `golfbahn`
 --
 
-INSERT INTO `golfbahn` (`golfbahn_id`, `beschreibung`) VALUES
-(1, 'Golfbahn Map1'),
-(2, 'Golfbahn Map2'),
-(3, 'Golfbahn Map3'),
-(4, 'Golfbahn Map4'),
-(5, 'Golfbahn Map5'),
-(6, 'Golfbahn Map6'),
-(7, 'Golfbahn Map7'),
-(8, 'Golfbahn Map8'),
-(9, 'Golfbahn Map9'),
-(10, 'Golfbahn Map10'),
-(11, 'Golfbahn Map11'),
-(12, 'Golfbahn Map12'),
-(13, 'Golfbahn Map13'),
-(14, 'Golfbahn Map14'),
-(15, 'Golfbahn Map15'),
-(16, 'Golfbahn Map16');
+INSERT INTO `golfbahn` (`golfbahn_id`, `beschreibung`, `text`) VALUES
+(1, 'Golfbahn Map1', 'hhhhh'),
+(2, 'Golfbahn Map2', NULL),
+(3, 'Golfbahn Map3', NULL),
+(4, 'Golfbahn Map4', NULL),
+(5, 'Golfbahn Map5', NULL),
+(6, 'Golfbahn Map6', NULL),
+(7, 'Golfbahn Map7', NULL),
+(8, 'Golfbahn Map8', NULL),
+(9, 'Golfbahn Map9', NULL),
+(10, 'Golfbahn Map10', NULL),
+(11, 'Golfbahn Map11', NULL),
+(12, 'Golfbahn Map12', NULL),
+(13, 'Golfbahn Map13', NULL),
+(14, 'Golfbahn Map14', NULL),
+(15, 'Golfbahn Map15', NULL),
+(16, 'Golfbahn Map16', NULL);
 
 -- --------------------------------------------------------
 
@@ -122,9 +123,9 @@ INSERT INTO `koordinaten` (`koordinate_id`, `x_koordinate`, `y_koordinate`, `ext
 (29, 350, 380, '', 23),
 (30, 710, 205, '', 23),
 (31, 780, 220, '', 23),
-(32, 300, 305, '', 24),
-(33, 380, 170, '', 24),
-(34, 550, 305, '', 24),
+(32, 250, 305, '', 24),
+(33, 350, 170, '', 24),
+(34, 600, 305, '', 24),
 (35, 780, 235, '', 24),
 (36, 650, 170, '', 25),
 (37, 650, 306, '', 27),
@@ -293,7 +294,6 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (4, NULL, NULL, 'arc(783, 238, 150, 1.15*Math.PI, 0.85*Math.PI, false);', '', 'Kreis', 0, 1),
 (5, 50, 306, NULL, '', 'unbekannt', 0, 1),
 (6, 50, 170, NULL, '', 'unbekannt', 0, 1),
-(7, 50, 200, NULL, 'black', 'schwarze Linie', 0, 1),
 (8, NULL, NULL, 'arc(790,238,15,0*Math.PI,2*Math.PI);', '#3AAD55', '', 0, 1),
 (9, 120, 235, NULL, 'red', 'undefined', 0, 2),
 (10, 50, 170, NULL, 'black', 'undefined', 0, 2),
@@ -315,7 +315,7 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (26, NULL, NULL, 'arc(783, 238, 150, 1.15*Math.PI, 0.85*Math.PI, false);', '', '', 0, 4),
 (27, 50, 306, NULL, '', '', 0, 4),
 (28, 50, 170, NULL, '', '', 0, 4),
-(29, NULL, NULL, 'arc(790, 238, 20, 0*Math.PI, 2*Math.PI, false);', '#3AAD55', '', 0, 4),
+(29, NULL, NULL, 'arc(790, 238, 15, 0*Math.PI, 2*Math.PI, false);', '#3AAD55', '', 0, 4),
 (30, NULL, NULL, 'rect(250, 170, 20, 70);', 'yellow', '', 0, 4),
 (31, NULL, NULL, 'rect(400, 236, 20, 70);', 'blue', '', 0, 4),
 (32, NULL, NULL, 'rect(550, 170, 20, 70);', 'red', '', 0, 4),
@@ -361,15 +361,15 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (73, 50, 306, NULL, '', '', 0, 9),
 (74, 50, 170, NULL, '', '', 0, 9),
 (75, 50, 200, NULL, '', '', 0, 9),
-(76, NULL, NULL, 'arc(790, 238, 20, 0*Math.PI, 2*Math.PI, false);', '#3AAD55', '', 0, 9),
+(76, NULL, NULL, 'arc(790, 238, 15, 0*Math.PI, 2*Math.PI, false);', '#3AAD55', '', 0, 9),
 (77, 129, 235, NULL, 'blue', 'Blaue Linie', 0, 10),
-(78, 0, 0, NULL, 'red', 'Rote Linie', 0, 10),
+(78, 129, 235, NULL, 'red', 'Rote Linie', 0, 10),
 (79, 50, 170, NULL, 'black', '', 0, 10),
 (80, NULL, NULL, 'arc(783, 238, 150, 1.15*Math.PI, 0.85*Math.PI, false);', '', '', 0, 10),
 (81, 50, 306, NULL, '', '', 0, 10),
 (82, 50, 170, NULL, '', '', 0, 10),
 (83, 50, 200, NULL, '', '', 0, 10),
-(84, NULL, NULL, 'arc(790, 238, 20, 0*Math.PI, 2*Math.PI);', '#3AAD55', '', 0, 10),
+(84, NULL, NULL, 'arc(790, 238, 15, 0*Math.PI, 2*Math.PI);', '#3AAD55', '', 0, 10),
 (85, 123, 240, NULL, 'blue', 'Blaue Linie', 0, 11),
 (86, 123, 240, NULL, 'red', 'Rote Linie', 0, 11),
 (87, 50, 170, NULL, 'black', 'Schwarze Linie', 0, 11),
@@ -384,7 +384,6 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (96, 50, 306, NULL, 'black', 'Schwarze Linie', 0, 12),
 (97, 325, 300, NULL, 'black', 'Schwarze Linie', 0, 12),
 (98, 50, 170, NULL, 'black', 'Schwarze Linie', 0, 12),
-(99, NULL, NULL, 'arc(113,238,10,0*Math.PI,2*Math.PI);', 'black', 'Kreis', 0, 12),
 (100, 50, 200, NULL, 'black', 'Schwarze Linie', 0, 12),
 (101, NULL, NULL, 'arc(790,238,15,0*Math.PI,2*Math.PI);', '#3AAD55', 'Kreis', 0, 12),
 (102, 123, 240, NULL, 'blue', 'Blaue Linie', 0, 12),
@@ -392,7 +391,6 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (104, NULL, NULL, 'arc(783, 238, 150, 1.15*Math.PI, 0.85*Math.PI, false);', 'black', 'Kreis', 0, 13),
 (105, 50, 306, NULL, 'black', 'Schwarze Linie', 0, 13),
 (106, 50, 170, NULL, 'black', 'Schwarze Linie', 0, 13),
-(107, NULL, NULL, 'arc(113,238,10,0*Math.PI,2*Math.PI);', 'black', 'Kreis', 0, 13),
 (108, 50, 200, NULL, 'black', 'Schwarze Linie', 0, 13),
 (109, NULL, NULL, 'arc(790,238,15,0*Math.PI,2*Math.PI);', '#3AAD55', 'Kreis', 0, 13),
 (110, 300, 250, NULL, 'black', 'Schwarze Linie', 0, 13),
@@ -415,7 +413,6 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (127, NULL, NULL, 'arc(783, 238, 150, 1.15*Math.PI, 0.85*Math.PI);', 'black', 'Kreis', 0, 15),
 (128, 50, 306, NULL, 'black', 'Schwarze Linie', 0, 15),
 (129, 50, 170, NULL, 'black', 'Schwarze Linie', 0, 15),
-(130, NULL, NULL, 'arc(113,238,10,0*Math.PI,2*Math.PI);', 'black', 'Kreis', 0, 15),
 (131, NULL, NULL, 'arc(770, 238, 75, 0*Math.PI, 2*Math.PI);', '#C1B8B8', 'Kreis', 0, 15),
 (132, NULL, NULL, 'arc(770, 238, 10, 0*Math.PI, 2*Math.PI);', '#010000', 'Kreis', 0, 15),
 (133, 113, 238, NULL, 'blue', 'Blaue Linie', 0, 15),
@@ -424,7 +421,6 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (136, NULL, NULL, 'arc(783, 238, 150, 1.15*Math.PI, 0.85*Math.PI, false);', 'black', 'Kreis', 0, 16),
 (137, 50, 306, NULL, 'black', 'Schwarze Linie', 0, 16),
 (138, 50, 170, NULL, 'black', 'Schwarze Linie', 0, 16),
-(139, NULL, NULL, 'arc(113,238,10,0*Math.PI,2*Math.PI);', 'black', 'Kreis', 0, 16),
 (140, NULL, NULL, 'arc(770, 238, 10, 0*Math.PI, 2*Math.PI, false);', '#3AAD55', 'Kreis', 0, 16),
 (141, NULL, NULL, 'arc(770, 238, 60, 1.25*Math.PI, 0.75*Math.PI);', 'black', 'Kreis', 0, 16),
 (142, 728, 195, NULL, 'black', 'Schwarze Linie', 0, 16),
@@ -444,7 +440,6 @@ INSERT INTO `zeichnung` (`z_d`, `pos_x`, `pos_y`, `objekt`, `farbe`, `titel`, `s
 (156, 440, 230, NULL, 'black', 'Schwarze Linie', 0, 11),
 (157, NULL, NULL, 'arc(420,194,20,1.6*Math.PI,0*Math.PI);', 'black', 'Kreis', 0, 11),
 (158, 409, 175, NULL, 'black', 'Schwarze Linie', 0, 11),
-(159, NULL, NULL, 'arc(113,238,10,0*Math.PI,2*Math.PI);', 'black', 'Kreis', 0, 11),
 (160, NULL, NULL, 'arc(790,238,15,0*Math.PI,2*Math.PI);', '#3AAD55', 'Kreis', 0, 11),
 (161, 123, 240, NULL, 'red', 'Rote Linie', 0, 13);
 
