@@ -1303,6 +1303,42 @@ function draw() { //animieren
 		console.log("Ende");
 	}
   }
+  if(red == true){ 
+	if(redSwitch == false){
+		ball.x += 4.7;
+		ball.y += 3;
+		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
+	}
+	if(ball.x > 255 && ball.y > 308){ //x 255 ,, y 310
+		redSwitch = true;
+		console.log("Route wechseln");
+	}
+	if(ball.x > 645 && ball.y < 270){
+			redSwitchnext = true;
+		}
+	if(ball.x > 783 && ball.y < 250){
+		running = false;
+		window.cancelAnimationFrame(raf);
+		console.log("Ende");
+	}
+	if(redSwitch == true){
+		ball.y -= 4.8;
+		ball.x += 4.5;
+		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
+		if(ball.x > 375 && ball.y < 169){
+			redSwitch = false;
+		}
+		
+	}
+	if(redSwitchnext==true){
+		ball.y -= 0.01;
+		ball.x += 13.6;
+		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
+		if(ball.x > 600 && ball.y < 305){
+			redSwitchnext = false;
+		}
+	}
+  }
   
   
 }
