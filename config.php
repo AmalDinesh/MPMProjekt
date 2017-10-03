@@ -204,7 +204,7 @@ container.draw();
 ball.draw();';
 $javaContentArray = array(1=>'
 var c= document.getElementById("mycanvas"),
-ctx=c.getContext("2d"),raf,running = false,red = false,blue = false,redSwitch = false,redSwitchnext = false, mouse={};
+ctx=c.getContext("2d"),raf,running = false,red = false,blue = false,redSwitch = false,redSwitchnext = false, mouse={}, redSwitch2=false,redSwitchnext2=false;
 
 var container = {
   draw: function(){
@@ -230,8 +230,8 @@ function draw() {
   }
    if(red == true){ 
 	if(redSwitch == false){
-		ball.x += 5;
-		ball.y += 2.8;
+		ball.x += 4.7;
+		ball.y += 3;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
 	}
 	if(ball.x > 255 && ball.y > 308){ //x 255 ,, y 310
@@ -241,7 +241,7 @@ function draw() {
 	if(ball.x > 645 && ball.y < 270){
 			redSwitchnext = true;
 		}
-	if(ball.x > 790 && ball.y < 230){
+	if(ball.x > 783 && ball.y < 250){
 		running = false;
 		window.cancelAnimationFrame(raf);
 		console.log("Ende");
@@ -256,8 +256,8 @@ function draw() {
 		
 	}
 	if(redSwitchnext==true){
-		ball.y -= 0.05;
-		ball.x += 7;
+		ball.y -= 0.01;
+		ball.x += 13.6;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
 		if(ball.x > 600 && ball.y < 305){
 			redSwitchnext = false;
@@ -552,39 +552,41 @@ function draw() { //animieren
   
 if(red == true){ 
 	if(redSwitch == false){
-		ball.x += 5;
-		ball.y += 2.8;
+		ball.x += 7;
+		ball.y += 3.5;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
 	}
-	if(ball.x > 255 && ball.y > 308){ //x 255 ,, y 310
+	if(ball.x > 250 && ball.y > 308){ //x 255 ,, y 310
 		redSwitch = true;
 		console.log("Route wechseln");
 	}
 	if(ball.x > 645 && ball.y < 270){
 			redSwitchnext = true;
 		}
-	if(ball.x > 790 && ball.y < 230){
+	if(ball.x > 784 && ball.y < 248){
 		running = false;
 		window.cancelAnimationFrame(raf);
 		console.log("Ende");
 	}
 	if(redSwitch == true){
-		ball.y -= 4.8;
-		ball.x += 4.5;
+		ball.y -= 6;
+		ball.x += 4;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
-		if(ball.x > 375 && ball.y < 169){
+		if(ball.x > 350 && ball.y < 169){
 			redSwitch = false;
 		}
 		
 	}
 	if(redSwitchnext==true){
-		ball.y -= 0.05;
-		ball.x += 7;
+		ball.y -= 0.015;
+		ball.x += 13.4;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
 		if(ball.x > 600 && ball.y < 305){
 			redSwitchnext = false;
+			rednext==true;
 		}
 	}
+	
   }
 
 }
@@ -1175,8 +1177,8 @@ function draw() { //animieren
   }
   if(red == true){ 
 	if(redSwitch == false){
-		ball.x += 5;
-		ball.y += 2.8;
+		ball.x += 4.7;
+		ball.y += 3;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
 	}
 	if(ball.x > 255 && ball.y > 308){ //x 255 ,, y 310
@@ -1186,7 +1188,7 @@ function draw() { //animieren
 	if(ball.x > 645 && ball.y < 270){
 			redSwitchnext = true;
 		}
-	if(ball.x > 790 && ball.y < 230){
+	if(ball.x > 783 && ball.y < 250){
 		running = false;
 		window.cancelAnimationFrame(raf);
 		console.log("Ende");
@@ -1201,8 +1203,8 @@ function draw() { //animieren
 		
 	}
 	if(redSwitchnext==true){
-		ball.y -= 0.05;
-		ball.x += 7;
+		ball.y -= 0.01;
+		ball.x += 13.6;
 		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
 		if(ball.x > 600 && ball.y < 305){
 			redSwitchnext = false;
@@ -1301,42 +1303,7 @@ function draw() { //animieren
 		console.log("Ende");
 	}
   }
-  if(red == true){ 
-	if(redSwitch == false){
-		ball.x += 5;
-		ball.y += 2.8;
-		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
-	}
-	if(ball.x > 255 && ball.y > 308){ //x 255 ,, y 310
-		redSwitch = true;
-		console.log("Route wechseln");
-	}
-	if(ball.x > 645 && ball.y < 270){
-			redSwitchnext = true;
-		}
-	if(ball.x > 790 && ball.y < 230){
-		running = false;
-		window.cancelAnimationFrame(raf);
-		console.log("Ende");
-	}
-	if(redSwitch == true){
-		ball.y -= 4.8;
-		ball.x += 4.5;
-		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
-		if(ball.x > 375 && ball.y < 169){
-			redSwitch = false;
-		}
-		
-	}
-	if(redSwitchnext==true){
-		ball.y -= 0.05;
-		ball.x += 7;
-		console.log("koordinate x = "+ball.x+" koordinate y = "+ball.y);
-		if(ball.x > 600 && ball.y < 305){
-			redSwitchnext = false;
-		}
-	}
-  }
+  
   
 }
 $( "#blue" ).on("click", function(e) { //blue
