@@ -95,12 +95,19 @@ $.ajax({
 });
 	
 });
+var collect = new Array();
 $( ".editing" ).on("click", function(e) {
 	e.preventDefault();
-	$(\'#loader\').show();
+	$(\'#saver\').show();
+	$(this).css("background","red");
+	collect.push($(this).attr("id"));
+});	
+$( "#saver" ).on("click", function(e) {
+	e.preventDefault();
+	var delets = JSON.stringify(collect);
 	$.ajax({
 		type: \'GET\',
-		url:  "response.php?seite=maps&maps='.$map.'&deleter="+$(this).attr("id"),
+		url:  "response.php?seite=maps&maps='.$map.'&saving="+delets,
 		success: function(msg) {
 			$(\'.container\').fadeOut(800, function(){
 				$(\'#loader\').hide();
@@ -109,7 +116,6 @@ $( ".editing" ).on("click", function(e) {
 		}
 	});
 });	
-	
 mycanvas.addEventListener("mouseout", function(e) { 
   window.cancelAnimationFrame(raf);
   running = false;
@@ -122,7 +128,7 @@ mycanvas.addEventListener("mouseout", function(e) {
         currY = 0,
         dot_flag = false;
 
-    var x = "black",
+    var x = "blue",
         y = 2;
     init();
     function init() {
@@ -191,8 +197,6 @@ function getMousePos(canvas, evt) {
       y: evt.clientY - rect.top
     };
 }
-   
-
 mycanvas.addEventListener("click", function(e) {
     var pos = getMousePos(mycanvas, e);
 	posx = pos.x;
@@ -298,6 +302,7 @@ var ball = { //alle anfangskoordinaten und eigenschaften
     ctx.fill();
   }
 };
+
 function clear() { //löschen 
   ctx.fillStyle = "rgba(255, 255, 255, 1)";
   ctx.fillRect(0,0,mycanvas2.width,mycanvas2.height);  
