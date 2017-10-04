@@ -12,10 +12,9 @@ Ausgabe von beliebigen Inhalt mit echo
 		break;
 		case "impressum":
 			echo "<h1>Impressum</h1>";
-			echo "<p>1.Wählen Sie eine Karte aus</p>";
-			echo "<p><img src='bild1.jpg' /></p>";
-			echo "<p>Jetzt haben Sie die Möglichkeit auf der von Ihnen ausgewählten Map
-			       die Animation zu betrachten bzw. die Karte zu bearbeiten</p>";
+			echo "<p>Entwickler: Dinesh Amalathasan, Julia Bachmaier, Emin Kajosevic, Ivan Kalinin</p>";
+			echo "<p>Bei Fragen können Sie uns gerne kontaktieren: Emin.Kajosevic@iem.thm.de</p>";
+
 		break;
 		case "maps";
 		echo "<h1> Minigolfkarten</h1>";
@@ -24,11 +23,11 @@ Ausgabe von beliebigen Inhalt mit echo
 				
 		case 1:
 			echo "<h1> Karte 1</h1><br><button id='edit'>Bearbeiten</button><button id='draw'>Linie ziehen</button>";
-			
+			echo "<button id='saver' style='display:none'>Speichern</button>"; 
 			echo "<canvas id='mycanvas' width='1000' height='500' style='z-index:1;border:1px solid black;'></canvas>";
 			echo "<button id = 'blue' style='font-size:20px'>Blau</button>";
-			echo "<button id = 'red' style='font-size:20px'>Rot</button>";
-			echo "<button id = 'reset' style='font-size:20px'>Zurücksetzen</button>";
+			echo "<button id = 'red' style='font-size:20px'>Rot</button><button id = 'reset' style='font-size:20px'>Zurücksetzen</button>";
+			
 			echo '<script>
 			var vW = $(document).width();
 			var vH = $(document).height();
@@ -49,22 +48,22 @@ Ausgabe von beliebigen Inhalt mit echo
 			echo "<div id='result'></div>";
 			echo '<script>
 			$( "form[id=\'beschreibung\']" ).submit(function( e) {
-	e.preventDefault();
-	var golfid = 1;
-	var textarea = $(this).find("textarea[name=\'textarea\']").val();
-var posting = $.post( "response.php", { golfid: golfid, textarea: textarea } );
-  posting.done(function( data ) {
-	 $( "#result" ).empty().append( data );
-  });
-			});
-			$( "form[id=\'tipp\']" ).submit(function( e) {
-	e.preventDefault();
-	var golfid = 1;
-	var posting = $.post( "response.php", { golfid: golfid, tipp: "tipp" } );
-    posting.done(function( data ) {
-	 $( "#result" ).empty().append( data );
-  });
-			});
+			e.preventDefault();
+			var golfid = 1;
+			var textarea = $(this).find("textarea[name=\'textarea\']").val();
+		var posting = $.post( "response.php", { golfid: golfid, textarea: textarea } );
+		  posting.done(function( data ) {
+			 $( "#result" ).empty().append( data );
+		  });
+						});
+		$( "form[id=\'tipp\']" ).submit(function( e) {
+			e.preventDefault();
+			var golfid = 1;
+			var posting = $.post( "response.php", { golfid: golfid, tipp: "tipp" } );
+			posting.done(function( data ) {
+			 $( "#result" ).empty().append( data );
+		  });
+		});
 			</script>';
 		break;
 		case 2:
@@ -175,7 +174,7 @@ var posting = $.post( "response.php", { golfid: golfid, textarea: textarea } );
 		break;
 		
 		case 5:
-		echo "<h1>Karte Nr5 (Stumpfe Kegel)</h1>";
+		echo "<h1>Karte Nr5</h1>";
 		echo "<canvas id='mycanvas5' width='1000' height='500' style='border:1px solid black;'></canvas>";
 		echo "<button id = 'red' style='font-size:20px'>Rot</button>";
 		echo "<button id = 'reset' style='font-size:20px'>Zurücksetzen</button>";
@@ -621,8 +620,11 @@ var posting = $.post( "response.php", { golfid: golfid, textarea: textarea } );
 		
 	}
  }
-	if(isset($_GET['deleter'])){
-		removeLine($_GET['deleter']);
+	if(isset($_GET['saving'])){
+		$op = json_decode($_GET['saving']);
+		foreach($op as $key){
+			removeLine(filter_var($key, FILTER_SANITIZE_NUMBER_INT));
+		}
 	}
 	if(isset($_POST['textarea'])){
 		editText($_POST['golfid'] , $_POST['textarea']);
